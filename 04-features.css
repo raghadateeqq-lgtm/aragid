@@ -1,0 +1,673 @@
+/* ============================================================
+   ARAGID — FEATURES
+   Rescue, Onboarding, Protocols, Tools, etc.
+   ============================================================ */
+
+/* ============================================================
+   RESCUE FAB (90s breathing)
+   ============================================================ */
+.rescue-fab {
+  position: fixed;
+  bottom: calc(var(--navbar-h) + var(--s-5) + var(--safe-bottom));
+  left: var(--s-5);
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--grad-rose);
+  color: var(--ink);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 30px -5px var(--crimson-500), 0 0 40px -10px var(--rose-400);
+  z-index: 35;
+  animation: rescuePulse 3s ease-in-out infinite;
+  cursor: pointer;
+  transition: transform var(--d-fast) var(--easing);
+}
+
+.rescue-fab:hover {
+  transform: scale(1.05);
+}
+
+@keyframes rescuePulse {
+  0%, 100% { box-shadow: 0 10px 30px -5px var(--crimson-500), 0 0 40px -10px var(--rose-400); }
+  50% { box-shadow: 0 10px 30px -5px var(--crimson-500), 0 0 60px -5px var(--rose-300); }
+}
+
+.rescue-overlay {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(180deg, var(--bg-deep), var(--bg));
+  z-index: 500;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--s-6);
+}
+
+.rescue-overlay.show { display: flex; }
+
+.rescue-phase {
+  font-family: var(--f-display);
+  font-size: var(--t-2xl);
+  font-weight: 500;
+  color: var(--ink);
+  letter-spacing: 8px;
+  margin-bottom: var(--s-8);
+  text-shadow: 0 0 30px var(--primary-glow);
+}
+
+.rescue-ring {
+  position: relative;
+  width: 240px;
+  height: 240px;
+  margin-bottom: var(--s-6);
+}
+
+.rescue-ring svg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.rescue-ring .bg {
+  fill: none;
+  stroke: var(--surface-2);
+  stroke-width: 6;
+}
+
+.rescue-ring .fg {
+  fill: none;
+  stroke: url(#rescueGrad);
+  stroke-width: 6;
+  stroke-linecap: round;
+  stroke-dasharray: 691;
+  stroke-dashoffset: 691;
+  transition: stroke-dashoffset 1s linear;
+  filter: drop-shadow(0 0 12px var(--primary));
+}
+
+.rescue-num {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--f-display);
+  font-size: var(--t-4xl);
+  font-weight: 300;
+  color: var(--ink);
+  letter-spacing: 2px;
+}
+
+.rescue-cue {
+  font-family: var(--f-serif);
+  font-size: var(--t-md);
+  color: var(--ink-2);
+  margin-bottom: var(--s-8);
+  font-style: italic;
+  text-align: center;
+  max-width: 280px;
+  line-height: 1.6;
+}
+
+.rescue-cancel {
+  padding: 12px 24px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--r-full);
+  color: var(--ink-3);
+  font-size: var(--t-sm);
+  transition: all var(--d-fast) var(--easing);
+}
+
+.rescue-cancel:hover {
+  background: var(--surface-3);
+  color: var(--ink);
+}
+
+/* ============================================================
+   ONBOARDING
+   ============================================================ */
+.onboarding {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(180deg, var(--bg-deep), var(--bg));
+  z-index: 800;
+  display: flex;
+  flex-direction: column;
+  padding: var(--s-6);
+  padding-top: calc(var(--safe-top) + var(--s-8));
+  overflow-y: auto;
+}
+
+.ob-progress {
+  display: flex;
+  gap: 6px;
+  margin-bottom: var(--s-8);
+}
+
+.ob-dot {
+  flex: 1;
+  height: 3px;
+  background: var(--surface-2);
+  border-radius: var(--r-full);
+  transition: background var(--d-base) var(--easing);
+}
+
+.ob-dot.active {
+  background: var(--grad-brand);
+  box-shadow: 0 0 10px var(--primary);
+}
+
+.ob-dot.done {
+  background: var(--gold-400);
+}
+
+.ob-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 420px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.ob-eyebrow {
+  font-size: var(--t-xs);
+  color: var(--gold-400);
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  margin-bottom: var(--s-3);
+  text-align: center;
+}
+
+.ob-title {
+  font-family: var(--f-display);
+  font-size: var(--t-2xl);
+  font-weight: 600;
+  color: var(--ink);
+  text-align: center;
+  letter-spacing: 2px;
+  margin-bottom: var(--s-4);
+  line-height: 1.4;
+}
+
+.ob-desc {
+  font-size: var(--t-base);
+  color: var(--ink-2);
+  text-align: center;
+  line-height: 1.7;
+  margin-bottom: var(--s-8);
+}
+
+.ob-options {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+  margin-bottom: var(--s-8);
+}
+
+.ob-option {
+  padding: var(--s-4) var(--s-5);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  color: var(--ink-2);
+  text-align: right;
+  font-size: var(--t-base);
+  font-weight: 500;
+  transition: all var(--d-fast) var(--easing);
+  cursor: pointer;
+}
+
+.ob-option:hover {
+  background: var(--surface-2);
+  border-color: var(--border-strong);
+}
+
+.ob-option.selected {
+  background: var(--grad-brand-soft);
+  border-color: var(--primary);
+  color: var(--ink);
+}
+
+.ob-footer {
+  margin-top: auto;
+  display: flex;
+  gap: var(--s-3);
+  padding-top: var(--s-5);
+}
+
+.ob-skip {
+  flex: 0 0 auto;
+  padding: 12px 20px;
+  color: var(--ink-4);
+  font-size: var(--t-sm);
+}
+
+.ob-next {
+  flex: 1;
+}
+
+/* ============================================================
+   PROTOCOLS / TOOLS
+   ============================================================ */
+.protocol-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+}
+
+.protocol-card {
+  display: flex;
+  align-items: center;
+  gap: var(--s-4);
+  padding: var(--s-4);
+  background: var(--grad-card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  cursor: pointer;
+  transition: all var(--d-fast) var(--easing);
+}
+
+.protocol-card:hover {
+  border-color: var(--border-glow);
+  transform: translateX(-4px);
+}
+
+.protocol-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--r-md);
+  background: var(--grad-brand-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  color: var(--primary);
+  flex-shrink: 0;
+}
+
+.protocol-info {
+  flex: 1;
+}
+
+.protocol-title {
+  font-family: var(--f-display);
+  font-size: var(--t-md);
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 2px;
+}
+
+.protocol-desc {
+  font-size: var(--t-xs);
+  color: var(--ink-3);
+}
+
+.protocol-time {
+  font-size: var(--t-xs);
+  color: var(--gold-400);
+  padding: 4px 10px;
+  background: rgba(201, 166, 107, 0.1);
+  border-radius: var(--r-full);
+  letter-spacing: 1px;
+}
+
+/* ============================================================
+   PROTOCOL DETAIL
+   ============================================================ */
+.proto-detail {
+  padding: var(--s-2);
+}
+
+.proto-step {
+  margin-bottom: var(--s-5);
+  padding: var(--s-4);
+  background: var(--surface);
+  border-right: 3px solid var(--primary);
+  border-radius: var(--r-sm);
+}
+
+.proto-step-num {
+  font-family: var(--f-display);
+  font-size: var(--t-xs);
+  color: var(--gold-400);
+  letter-spacing: 3px;
+  margin-bottom: var(--s-2);
+}
+
+.proto-step-content {
+  font-size: var(--t-base);
+  color: var(--ink);
+  line-height: 1.7;
+}
+
+/* ============================================================
+   INSIGHTS / CHARTS
+   ============================================================ */
+.insights-grid {
+  display: grid;
+  gap: var(--s-4);
+}
+
+.insight-stat-card {
+  padding: var(--s-5);
+  background: var(--grad-card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  text-align: center;
+}
+
+.insight-stat-num {
+  font-family: var(--f-display);
+  font-size: var(--t-3xl);
+  font-weight: 700;
+  background: var(--grad-gold);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: var(--s-2);
+}
+
+.insight-stat-label {
+  font-size: var(--t-sm);
+  color: var(--ink-3);
+  letter-spacing: 1px;
+}
+
+.chart-container {
+  background: var(--grad-card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  padding: var(--s-5);
+  margin-bottom: var(--s-4);
+}
+
+.chart-title {
+  font-family: var(--f-display);
+  font-size: var(--t-md);
+  color: var(--ink);
+  margin-bottom: var(--s-4);
+  letter-spacing: 1px;
+}
+
+/* ============================================================
+   ARCHIVE
+   ============================================================ */
+.archive-item {
+  padding: var(--s-4);
+  background: var(--grad-card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  margin-bottom: var(--s-3);
+  cursor: pointer;
+  transition: all var(--d-fast) var(--easing);
+}
+
+.archive-item:hover {
+  border-color: var(--border-glow);
+}
+
+.archive-item-date {
+  font-size: var(--t-xs);
+  color: var(--gold-400);
+  letter-spacing: 2px;
+  margin-bottom: var(--s-2);
+}
+
+.archive-item-preview {
+  font-family: var(--f-serif);
+  font-size: var(--t-base);
+  color: var(--ink-2);
+  line-height: 1.6;
+  font-style: italic;
+}
+
+.archive-filters {
+  display: flex;
+  gap: var(--s-2);
+  margin-bottom: var(--s-4);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: var(--s-2);
+}
+
+/* ============================================================
+   SETTINGS
+   ============================================================ */
+.settings-section {
+  margin-bottom: var(--s-6);
+}
+
+.settings-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--s-4);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  margin-bottom: var(--s-2);
+  cursor: pointer;
+  transition: all var(--d-fast) var(--easing);
+}
+
+.settings-row:hover {
+  background: var(--surface-2);
+}
+
+.settings-label {
+  font-size: var(--t-base);
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.settings-value {
+  font-size: var(--t-sm);
+  color: var(--ink-3);
+}
+
+/* Toggle switch */
+.toggle {
+  position: relative;
+  width: 48px;
+  height: 28px;
+  background: var(--surface-3);
+  border-radius: var(--r-full);
+  cursor: pointer;
+  transition: background var(--d-fast) var(--easing);
+}
+
+.toggle::after {
+  content: '';
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  width: 22px;
+  height: 22px;
+  background: var(--ink);
+  border-radius: 50%;
+  transition: all var(--d-fast) var(--easing);
+}
+
+.toggle.on {
+  background: var(--grad-brand);
+}
+
+.toggle.on::after {
+  right: calc(100% - 25px);
+  background: var(--ink);
+}
+
+/* ============================================================
+   STORIES (Anonymous shared stories)
+   ============================================================ */
+.story-card {
+  padding: var(--s-5);
+  background: linear-gradient(135deg, rgba(196, 154, 174, 0.08), transparent);
+  border: 1px solid rgba(196, 154, 174, 0.2);
+  border-radius: var(--r-md);
+  margin-bottom: var(--s-3);
+}
+
+.story-text {
+  font-family: var(--f-serif);
+  font-size: var(--t-base);
+  line-height: 1.8;
+  color: var(--ink-2);
+  font-style: italic;
+}
+
+.story-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: var(--s-3);
+  padding-top: var(--s-3);
+  border-top: 1px solid var(--border);
+  font-size: var(--t-xs);
+  color: var(--ink-4);
+  letter-spacing: 1px;
+}
+
+/* ============================================================
+   AMBIENT / CRISIS BANNER
+   ============================================================ */
+.crisis-banner {
+  background: linear-gradient(135deg, rgba(196, 107, 122, 0.12), rgba(196, 107, 122, 0.05));
+  border: 1px solid rgba(196, 107, 122, 0.3);
+  border-radius: var(--r-md);
+  padding: var(--s-4);
+  margin-bottom: var(--s-5);
+  display: flex;
+  gap: var(--s-3);
+  align-items: flex-start;
+}
+
+.crisis-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(196, 107, 122, 0.2);
+  color: var(--rose-200);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 18px;
+}
+
+.crisis-content h4 {
+  font-size: var(--t-sm);
+  color: var(--rose-200);
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.crisis-content p {
+  font-size: var(--t-xs);
+  color: var(--ink-3);
+  line-height: 1.6;
+}
+
+.crisis-content a {
+  color: var(--rose-300);
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+/* ============================================================
+   CLOSING RITUAL
+   ============================================================ */
+.closing-ritual {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 40%, var(--bg) 0%, var(--bg-deep) 100%);
+  z-index: 700;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--s-8) var(--s-6);
+  text-align: center;
+}
+
+.closing-ritual.show { display: flex; }
+
+.closing-crest {
+  font-size: 32px;
+  color: var(--gold-400);
+  margin-bottom: var(--s-6);
+  text-shadow: 0 0 30px var(--gold-400);
+  animation: closingFloat 4s ease-in-out infinite;
+}
+
+@keyframes closingFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.closing-eyebrow {
+  font-size: var(--t-xs);
+  color: var(--gold-400);
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  margin-bottom: var(--s-3);
+}
+
+.closing-title {
+  font-family: var(--f-display);
+  font-size: var(--t-2xl);
+  color: var(--ink);
+  margin-bottom: var(--s-4);
+  letter-spacing: 2px;
+  line-height: 1.3;
+}
+
+.closing-quote {
+  font-family: var(--f-serif);
+  font-style: italic;
+  font-size: var(--t-md);
+  color: var(--gold-200);
+  line-height: 1.8;
+  max-width: 320px;
+  margin: 0 auto var(--s-8);
+}
+
+.closing-stats {
+  display: flex;
+  gap: var(--s-6);
+  margin-bottom: var(--s-8);
+  padding: var(--s-4) var(--s-5);
+  background: var(--surface);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--r-md);
+}
+
+.closing-stat {
+  text-align: center;
+}
+
+.closing-stat-num {
+  font-family: var(--f-display);
+  font-weight: 700;
+  font-size: var(--t-xl);
+  color: var(--gold-300);
+}
+
+.closing-stat-label {
+  font-size: 10px;
+  color: var(--ink-3);
+  letter-spacing: 2px;
+  margin-top: 4px;
+}
+
+.closing-actions {
+  display: flex;
+  gap: var(--s-3);
+}

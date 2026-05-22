@@ -1,0 +1,334 @@
+/* ============================================================
+   ARAGID — DESIGN SYSTEM
+   Tokens, Reset, Typography, Atmosphere
+   Premium Arabic feminine product
+   ============================================================ */
+
+:root {
+  /* === SURFACE / BG === */
+  --bg-deep: #0A0612;
+  --bg: #1A0F2E;
+  --bg-2: #251744;
+  --bg-3: #3A1F6B;
+  --bg-warm: #2A1518;
+  --surface: rgba(232, 196, 255, 0.05);
+  --surface-2: rgba(232, 196, 255, 0.08);
+  --surface-3: rgba(232, 196, 255, 0.12);
+  --surface-glass: rgba(26, 15, 46, 0.55);
+  --border: rgba(232, 196, 255, 0.10);
+  --border-strong: rgba(232, 196, 255, 0.20);
+  --border-glow: rgba(160, 96, 232, 0.35);
+
+  /* === PLUM LADDER (Primary Brand) === */
+  --plum-50: #FBF5FF;
+  --plum-100: #F0DCFF;
+  --plum-200: #E8C4FF;
+  --plum-300: #D49FFA;
+  --plum-400: #BC7DEF;
+  --plum-500: #A060E8;
+  --plum-600: #8B47D4;
+  --plum-700: #6B30B8;
+  --plum-800: #4A1F8C;
+  --plum-900: #2E1359;
+
+  /* === GOLD (Sacred Moments) === */
+  --gold-50: #FFF8E7;
+  --gold-100: #FCE9B4;
+  --gold-200: #F5DA8F;
+  --gold-300: #E5C088;
+  --gold-400: #C9A66B;
+  --gold-500: #B89758;
+  --gold-600: #8B6F3D;
+  --gold-700: #6B5430;
+  --gold-800: #4A3920;
+
+  /* === ROSE (Feminine Warmth) === */
+  --rose-100: #FCE6EE;
+  --rose-200: #F5C2D2;
+  --rose-300: #E5A6C0;
+  --rose-400: #C49AAE;
+  --rose-500: #A57892;
+  --rose-600: #8B5F75;
+
+  /* === TEAL (Calm Action) === */
+  --teal-200: #B5F0E2;
+  --teal-300: #7CE0CC;
+  --teal-400: #6FB8A8;
+  --teal-500: #4A9080;
+  --teal-600: #2E6B5C;
+
+  /* === CRIMSON (Restrained Alarm) === */
+  --crimson-400: #C46B7A;
+  --crimson-500: #A04757;
+  --crimson-600: #8B3A3A;
+
+  /* === SEMANTIC === */
+  --primary: var(--plum-400);
+  --primary-hover: var(--plum-300);
+  --primary-deep: var(--plum-600);
+  --primary-glow: rgba(160, 96, 232, 0.45);
+  --accent: var(--gold-400);
+  --success: var(--teal-400);
+  --warning: var(--gold-400);
+  --danger: var(--crimson-400);
+  --danger-deep: var(--crimson-600);
+
+  /* === TEXT === */
+  --ink: #F0E4CC;
+  --ink-2: rgba(240, 228, 204, 0.82);
+  --ink-3: rgba(240, 228, 204, 0.62);
+  --ink-4: rgba(240, 228, 204, 0.40);
+  --ink-5: rgba(240, 228, 204, 0.22);
+  --ink-beige: #E8DCC4;
+  --ink-mute: #B5A687;
+
+  /* === GRADIENTS === */
+  --grad-brand: linear-gradient(135deg, var(--plum-400), var(--plum-600), var(--plum-800));
+  --grad-brand-soft: linear-gradient(135deg, rgba(160, 96, 232, 0.15), rgba(74, 31, 140, 0.18));
+  --grad-gold: linear-gradient(135deg, var(--gold-300), var(--gold-500));
+  --grad-rose: linear-gradient(135deg, var(--rose-300), var(--rose-500));
+  --grad-bg: linear-gradient(180deg, var(--bg-3) 0%, var(--bg) 50%, var(--bg-deep) 100%);
+  --grad-card: linear-gradient(135deg, rgba(58, 31, 107, 0.4), rgba(42, 20, 80, 0.2));
+
+  /* === SHADOWS === */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 8px 24px -4px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 16px 48px -8px rgba(0, 0, 0, 0.5);
+  --shadow-xl: 0 30px 80px -20px rgba(160, 96, 232, 0.4);
+  --shadow-glow: 0 0 40px -10px var(--primary-glow);
+  --shadow-gold: 0 0 50px -10px rgba(201, 166, 107, 0.5);
+
+  /* === RADIUS === */
+  --r-xs: 6px;
+  --r-sm: 10px;
+  --r-md: 16px;
+  --r-lg: 24px;
+  --r-xl: 32px;
+  --r-2xl: 48px;
+  --r-full: 9999px;
+
+  /* === SPACING === */
+  --s-1: 4px;
+  --s-2: 8px;
+  --s-3: 12px;
+  --s-4: 16px;
+  --s-5: 20px;
+  --s-6: 24px;
+  --s-8: 32px;
+  --s-10: 40px;
+  --s-12: 48px;
+  --s-16: 64px;
+
+  /* === FONTS === */
+  --f-display: 'Reem Kufi', 'Tajawal', sans-serif;
+  --f-body: 'Tajawal', sans-serif;
+  --f-serif: 'Amiri', serif;
+
+  /* === SIZES === */
+  --t-xs: 11px;
+  --t-sm: 13px;
+  --t-base: 15px;
+  --t-md: 17px;
+  --t-lg: 20px;
+  --t-xl: 24px;
+  --t-2xl: 32px;
+  --t-3xl: 42px;
+  --t-4xl: 56px;
+  --t-5xl: 72px;
+
+  /* === MOTION === */
+  --easing: cubic-bezier(0.22, 1, 0.36, 1);
+  --easing-back: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --d-fast: 200ms;
+  --d-base: 350ms;
+  --d-slow: 600ms;
+  --d-slower: 1200ms;
+
+  /* === LAYOUT === */
+  --content-max: 560px;
+  --navbar-h: 76px;
+  --topbar-h: 60px;
+  --safe-top: env(safe-area-inset-top, 0);
+  --safe-bottom: env(safe-area-inset-bottom, 0);
+}
+
+/* ============================================================
+   RESET
+   ============================================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: var(--f-body);
+  font-size: var(--t-base);
+  line-height: 1.6;
+  color: var(--ink);
+  background: var(--bg-deep);
+  min-height: 100vh;
+  min-height: 100dvh;
+  overflow-x: hidden;
+  position: relative;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+button {
+  font-family: inherit;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: inherit;
+  -webkit-tap-highlight-color: transparent;
+}
+
+input, textarea, select {
+  font-family: inherit;
+  color: inherit;
+}
+
+::selection {
+  background: var(--primary-glow);
+  color: var(--ink);
+}
+
+/* Hide scrollbar for chat areas */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { scrollbar-width: none; }
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--surface-2); border-radius: var(--r-full); }
+::-webkit-scrollbar-thumb:hover { background: var(--surface-3); }
+
+/* ============================================================
+   ATMOSPHERE — Cinematic Background Layers
+   ============================================================ */
+.atmos {
+  position: fixed;
+  inset: 0;
+  background: var(--grad-bg);
+  z-index: -3;
+}
+
+.aurora-layer {
+  position: fixed;
+  pointer-events: none;
+  filter: blur(80px);
+  mix-blend-mode: screen;
+  opacity: 0.32;
+  z-index: -2;
+  will-change: transform, opacity;
+  transform: translateZ(0);
+  contain: layout style paint;
+}
+
+.aurora-1 {
+  top: -10%; right: -20%;
+  width: 60vw; height: 60vh;
+  background: radial-gradient(circle, var(--plum-500), transparent 65%);
+  animation: aurora-float-1 30s ease-in-out infinite;
+}
+
+.aurora-2 {
+  bottom: -10%; left: -15%;
+  width: 50vw; height: 50vh;
+  background: radial-gradient(circle, var(--rose-400), transparent 65%);
+  animation: aurora-float-2 35s ease-in-out infinite;
+  opacity: 0.25;
+}
+
+.aurora-3 {
+  top: 30%; left: 40%;
+  width: 40vw; height: 40vh;
+  background: radial-gradient(circle, var(--gold-500), transparent 70%);
+  animation: aurora-float-3 40s ease-in-out infinite;
+  opacity: 0.15;
+}
+
+@keyframes aurora-float-1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-30px, 40px) scale(1.1); }
+}
+
+@keyframes aurora-float-2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(40px, -30px) scale(1.15); }
+}
+
+@keyframes aurora-float-3 {
+  0%, 100% { transform: translate(0, 0) scale(1) rotate(0deg); }
+  50% { transform: translate(-20px, 20px) scale(1.05) rotate(30deg); }
+}
+
+/* Particles */
+.particles {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.particle {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: var(--gold-400);
+  border-radius: 50%;
+  box-shadow: 0 0 4px var(--gold-400);
+  opacity: 0;
+  animation: particle-rise linear infinite;
+}
+
+@keyframes particle-rise {
+  0% { transform: translateY(100vh) translateX(0); opacity: 0; }
+  10% { opacity: 0.6; }
+  90% { opacity: 0.4; }
+  100% { transform: translateY(-10vh) translateX(50px); opacity: 0; }
+}
+
+/* Film grain */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='0.9'/%3E%3CfeColorMatrix values='0 0 0 0 0.8 0 0 0 0 0.7 0 0 0 0 0.4 0 0 0 0.06 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: 0.4;
+  pointer-events: none;
+  z-index: 100;
+  mix-blend-mode: overlay;
+}
+
+/* ============================================================
+   ACCESSIBILITY
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .aurora-layer, .particle { animation: none; }
+}
+
+.hidden { display: none !important; }
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
