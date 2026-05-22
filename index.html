@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=5">
+  <meta name="theme-color" content="#0A0612">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="أراغيد">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="description" content="أراغيد — مساحتكِ الخاصة. نظام إعادة ضبط عاطفي يومي بالعربية. خصوصية كاملة، خاص بكِ تماماً.">
+  <meta name="format-detection" content="telephone=no">
+
+  <title>أراغيد — مساحتكِ الخاصة</title>
+
+  <link rel="manifest" href="./manifest.json">
+  <link rel="apple-touch-icon" href="./assets/icons/icon-192.png">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Reem+Kufi:wght@400;500;600;700&family=Tajawal:wght@200;300;400;500;700;800&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="./css/01-tokens.css">
+  <link rel="stylesheet" href="./css/02-components.css">
+  <link rel="stylesheet" href="./css/03-screens.css">
+  <link rel="stylesheet" href="./css/04-features.css">
+  <link rel="stylesheet" href="./css/05-premium.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js" defer></script>
+</head>
+<body>
+
+  <!-- Atmospheric Layers -->
+  <div class="atmos" aria-hidden="true"></div>
+  <div class="aurora-layer aurora-1" aria-hidden="true"></div>
+  <div class="aurora-layer aurora-2" aria-hidden="true"></div>
+  <div class="aurora-layer aurora-3" aria-hidden="true"></div>
+  <div class="particles" id="particles" aria-hidden="true"></div>
+
+  <!-- Threshold -->
+  <div class="threshold" id="threshold">
+    <div class="threshold-inner">
+      <div class="thr-crest">✦  ✦  ✦</div>
+      <div class="thr-mark">أَراغـيد · ARAGID</div>
+      <div class="thr-gem">
+        <svg viewBox="0 0 100 100" aria-hidden="true"><use href="#crest-flower"/></svg>
+      </div>
+      <h1 class="thr-h1">
+        <span>اكتبي ما لا يُقال</span>
+        <em>وامنحي نفسكِ مساحة.</em>
+      </h1>
+      <p class="thr-p">طقسكِ الخاص. للحظات لا تجدين فيها الكلمات، ولا تريدين شرحًا.</p>
+      <button class="thr-cta" id="thrEnter">ادخلي</button>
+      <div class="thr-foot">٧ دقائق · بدون أحكام · خاص بكِ تماماً</div>
+    </div>
+  </div>
+
+  <!-- Onboarding -->
+  <div class="onboarding hidden" id="onboarding"></div>
+
+  <!-- Offline indicator -->
+  <div class="offline-bar" id="offlineBar"></div>
+
+  <!-- TopBar -->
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-mark">أ</div>
+      <div>
+        <div class="brand-name">أراغيد</div>
+        <div class="brand-tag">ARAGID</div>
+      </div>
+    </div>
+    <div class="top-actions">
+      <button class="icon-btn" id="ambBtn" title="الأجواء" aria-label="الأجواء">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="18" height="18">
+          <circle cx="12" cy="12" r="4"/>
+          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+        </svg>
+      </button>
+      <button class="icon-btn" id="dndBtn" title="وضع الهدوء" aria-label="وضع الهدوء">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="18" height="18">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- DND Banner -->
+  <div class="dnd-banner" id="dndBanner">
+    <span>● وضع الهدوء مُفعَّل · التذكيرات مُؤجَّلة</span>
+    <button class="tiny-link" id="dndDisable">إلغاء</button>
+  </div>
+
+  <!-- Main Views -->
+  <main class="main">
+    <section class="view active" id="view-home"></section>
+    <section class="view" id="view-nada"></section>
+    <section class="view" id="view-write"></section>
+    <section class="view" id="view-garden"></section>
+    <section class="view" id="view-protocols"></section>
+    <section class="view" id="view-emdr"></section>
+    <section class="view" id="view-letters"></section>
+    <section class="view" id="view-insights"></section>
+    <section class="view" id="view-archive"></section>
+    <section class="view" id="view-toolkit"></section>
+    <section class="view" id="view-stories"></section>
+    <section class="view" id="view-settings"></section>
+    <section class="view" id="view-pricing"></section>
+  </main>
+
+  <!-- Rescue FAB -->
+  <button class="rescue-fab" id="rescueFab" aria-label="إنقاذ فوري">
+    <span class="rescue-fab-label">إنقاذ</span>
+    <span class="rescue-fab-glyph">✦</span>
+  </button>
+
+  <!-- Modal -->
+  <div class="modal" id="modal" role="dialog" aria-modal="true">
+    <div class="modal-card">
+      <button class="modal-close" id="modalClose" aria-label="إغلاق">✕</button>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+
+  <!-- More Menu -->
+  <div class="more-menu hidden" id="moreMenu">
+    <div class="more-card">
+      <button class="more-item" data-go="letters">
+        <div class="mi-icon">✉</div>
+        <span>رسائل من المستقبل</span>
+      </button>
+      <button class="more-item" data-go="emdr">
+        <div class="mi-icon">◐</div>
+        <span>التأرجح البصري</span>
+      </button>
+      <button class="more-item" data-go="toolkit">
+        <div class="mi-icon">◈</div>
+        <span>صندوق الأدوات</span>
+      </button>
+      <button class="more-item" data-go="insights">
+        <div class="mi-icon">◷</div>
+        <span>رؤى ورحلتي</span>
+      </button>
+      <button class="more-item" data-go="archive">
+        <div class="mi-icon">◊</div>
+        <span>أرشيف جلساتي</span>
+      </button>
+      <button class="more-item" data-go="stories">
+        <div class="mi-icon">✎</div>
+        <span>حكي الناس</span>
+      </button>
+      <button class="more-item highlight" data-go="pricing">
+        <div class="mi-icon">✦</div>
+        <span>أراغيد كاملة</span>
+      </button>
+      <button class="more-item" data-go="settings">
+        <div class="mi-icon">⚙</div>
+        <span>الإعدادات</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Bottom Navigation -->
+  <nav class="navbar" role="navigation" aria-label="التنقل الرئيسي">
+    <button class="nav-btn active" data-go="home" aria-label="الرئيسية">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12L12 4l9 8M5 10v10h14V10"/></svg>
+      <span>الرئيسية</span>
+    </button>
+    <button class="nav-btn" data-go="nada" aria-label="ندى">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+      <span>ندى</span>
+    </button>
+    <button class="nav-btn" data-go="write" aria-label="كتابة">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+      <span>كتابة</span>
+    </button>
+    <button class="nav-btn" data-go="garden" aria-label="الحديقة">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a4 4 0 0 0-4 4c0 1.5.5 2.5 1.5 3.5L12 12l2.5-2.5C15.5 8.5 16 7.5 16 6a4 4 0 0 0-4-4z"/><path d="M12 12v10M9 22h6"/></svg>
+      <span>الحديقة</span>
+    </button>
+    <button class="nav-btn" data-more aria-label="المزيد">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="12" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="19" cy="12" r="1.5"/></svg>
+      <span>المزيد</span>
+    </button>
+  </nav>
+
+  <!-- Toast -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <!-- Install Prompt -->
+  <div class="install-prompt" id="installPrompt">
+    <div class="install-prompt-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+      </svg>
+    </div>
+    <div class="install-prompt-text">
+      <b>ثبّتي أراغيد</b>
+      <span>افتحي طقسكِ من شاشتكِ مباشرةً، حتى دون إنترنت.</span>
+    </div>
+    <div class="install-prompt-btns">
+      <button class="ip-install" id="ipInstall">ثبّتي</button>
+      <button class="ip-dismiss" id="ipDismiss">لاحقاً</button>
+    </div>
+  </div>
+
+  <script type="module" src="./js/app.js"></script>
+
+</body>
+</html>
